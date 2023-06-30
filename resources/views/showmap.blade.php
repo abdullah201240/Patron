@@ -45,7 +45,10 @@
      <script>
 var map;
         function initialize() {
-    const fenway = { lat: 23.8624077, lng: 90.4042719 };
+           
+            const fenway = {lat: <?php echo $flan; ?>, lng: <?php echo $flong; ?>};
+            console.log(fenway);
+    //const fenway = { lat: <?php echo $lan; ?>, lng: <?php echo $long; ?> };
     
     const panorama = new google.maps.StreetViewPanorama(
       document.getElementById("pano"),
