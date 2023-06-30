@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Session;
+use Illuminate\Support\Facades\Session;
+
+
 use Response;
 use Illuminate\Support\Facades\Storage;
 
@@ -172,7 +174,11 @@ class rider extends Controller
        $miles = rad2deg($miles);
        
        $finalkm=$miles*1.609344;
-       return$finalkm;
+       $data = array('lan' => $lan, "long" => $long, "flan" => $flan, "flong" =>"$flong");
+           
+       return view( 'showmap', [ 'data' => $data] );
+       
+
 
 
 

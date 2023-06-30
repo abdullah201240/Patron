@@ -16,7 +16,7 @@
 
 
 		<div class="navbar-left">
-			<a href="newsfeed.php" class="logo"><img src="images/main.png"></a>
+			<a href="riderhome" class="logo"><img src="images/main.png"></a>
 
 			<div class="search-box">
 				<img src="images/search.png">
