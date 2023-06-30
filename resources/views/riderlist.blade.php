@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,15 +8,17 @@
     <title>Admin Home</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}">
+
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+    
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+   
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+ 
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -23,7 +26,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="images/main.png" alt="AdminLTELogo" height="200" width="200">
+            <img class="animation__wobble" src="{{ asset('images/main.png') }}" alt="AdminLTELogo" height="200" width="200">
         </div>
 
         <!-- Navbar -->
@@ -35,7 +38,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="/adminhome" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -84,7 +87,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="images/main.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                <img src="{{ asset('images/main.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
                 <span class="brand-text font-weight-light">PATRON</span>
             </a>
@@ -94,7 +97,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="images/admin.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('images/admin.jpg') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Jamil Zilani</a>
@@ -121,7 +124,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
-                            <a href="adminhome" class="nav-link active">
+                            <a href="/adminhome" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -131,7 +134,7 @@
 
                         </li>
                         <li class="nav-item">
-                            <a href="adminevent" class="nav-link">
+                            <a href="/adminevent" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Event
@@ -140,7 +143,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="adminriderasp" class="nav-link">
+                            <a href="/adminriderasp" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Rider Applications
@@ -151,7 +154,7 @@
 
                         </li>
                         <li class="nav-item">
-                            <a href="adminvolunteerasp" class="nav-link">
+                            <a href="/adminvolunteerasp" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
                                     Volunteer Applications
@@ -161,7 +164,7 @@
 
                         </li>
                         <li class="nav-item">
-                            <a href="admindonateinfo" class="nav-link">
+                            <a href="/admindonateinfo" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
                                 <p>
                                     Donate Information
@@ -206,7 +209,7 @@
                 <!-- TABLE: LATEST ORDERS -->
                 <div class="card">
                     <div class="card-header border-transparent">
-                        <h3 class="card-title">All Food  List</h3>
+                        <h3 class="card-title">Ride Request List</h3>
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -224,38 +227,74 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>Cooking Time</th>
-                                        <th>Image</th>
-                                        <th>Food Description</th>
-                                        
-                                        <th>View</th>
+                                        <th>Rider Location</th>
+                                        <th>Target Location</th>
+                                        <th>Distance</th>
+                                        <th>Status</th>
+                                        <th>Map</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ( $data as $da )
+                                    @foreach ($data as $da )
                                     <tr>
-                                        <td>{{$da->name}}</td>
-                                        <td>{{$da->email}}</td>
-                                        <td>{{$da->phone}}</td>
-                                        <td>{{$da->address}}</td>
-                                        <td>{{$da->ctime}}</td>
-                                        <td><img src="upload/{{$da->image}}"  alt="image" height="100px" width="100px"></td>
-                                        <td>{{$da->dis}}</td>
+
                                         <td>
-                                           <a href="riderlist/{{$da->id}}">
-                                                <button type="submit" class="btn btn-primary">View All Request</button>
-                                            </a>
+                                            {{$da->name}}
+                                        </td>
+                                        <td>{{$da->phone}}</td>
+                                        <td>
+                                            <?php
+                                          
+                                               
+                                               $apiKey = 'AIzaSyA_1WnWHIkFTsO2Idzkc48hSgYqNK246vo';
+                                             $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$da->lan},{$da->longt}&key={$apiKey}";
+
+                                             $client = new GuzzleHttp\Client();
+                                              $response = $client->get($url);
+
+                                             $data = json_decode($response->getBody(), true);
+
+                                             if ($data['status'] === 'OK') {
+                                                 $address = $data['results'][0]['formatted_address'];
+                                                  echo $address;
+                                                    }
+
+                                            ?>
+
 
                                            
+
+
+
                                         </td>
-                                        
-                                        
-                                        
-                                        
-                                        
+                                        <td>{{$da->faddress}}</td>
+
+                                        <td> <?php
+
+                                            $floatlong = (float)$da->longt;
+                                            $floatflong = (float)$da->flong;
+                                            $lan=(float)$da->lan;
+                                            $flan=(float)$da->flan;
+    
+                                          $theta = $floatlong - $floatflong;
+    
+                                         $miles = (sin(deg2rad($lan))) * sin(deg2rad($flan)) + (cos(deg2rad($lan)) * cos(deg2rad($flan)) * cos(deg2rad($theta)));
+                                           $miles = acos($miles);
+                                          $miles = rad2deg($miles);
+                                          $milesz=$miles * 60 * 1.1515;
+           
+                                            $finalkm=$milesz*1.609344;
+                                                echo$finalkm;
+                                                echo" km";
+           
+                                                ?></td>
+                                                <td>{{$da->status}}</td>
+                                                <td><a href="/showmap/{{$da->id}}"><button type="button" class="btn btn-primary">Show Map</button></a></td>
+
+                                                <td><a href="/riderasp/{{$da->id}}/{{$da->fid}}"><button type="button" class="btn btn-success">Accept</button></a></td>
+
                                     </tr>
                                         
                                     @endforeach
@@ -280,27 +319,57 @@
             </footer>
         </div>
 
-        <script src="plugins/jquery/jquery.min.js"></script>
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+
+
+      
         <!-- Bootstrap -->
-        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        
         <!-- overlayScrollbars -->
-        <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+       
         <!-- AdminLTE App -->
-        <script src="dist/js/adminlte.js"></script>
+        <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+        
 
         <!-- PAGE PLUGINS -->
         <!-- jQuery Mapael -->
-        <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-        <script src="plugins/raphael/raphael.min.js"></script>
-        <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-        <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+       
+       
+        <script src="{{ asset('plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
+        
+        <script src="{{ asset('plugins/raphael/raphael.min.js') }}"></script>
+        
+        <script src="{{ asset('plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
+        
+        <script src="{{ asset('plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
         <!-- ChartJS -->
-        <script src="plugins/chart.js/Chart.min.js"></script>
+       
+        <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
 
         <!-- AdminLTE for demo purposes -->
 
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="dist/js/pages/dashboard2.js"></script>
+       
+        <script src="{{ asset('dist/js/pages/dashboard2.js') }}"></script>
 </body>
 
 </html>
+

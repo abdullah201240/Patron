@@ -139,7 +139,7 @@
                         <div class="icon_1"><img src="images/icon-2.png"></div>
                         <h4 class="volunteer_text">Volunteer</h4>
                         <p class="lorem_text">Being a Patron's volunteer in a low-income area makes me understand that everyone has a story, no matter how small or insignificant it may seem. You must remember that each individual has a different story, but you must also take the time to appreciate and comprehend the narratives of those around you.</p>
-                        <div class="join_bt"><a href="#">Apply Now</a></div>
+                        <div class="join_bt"><a href="volunteerapply">Apply Now</a></div>
                      </div>
                   </div>
                   <div class="col-lg-4">

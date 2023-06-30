@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Session;
-use Response;
+
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -222,6 +222,33 @@ class admin extends Controller
       
         return redirect("adminvolunteerasp");
     }
+    public function adminhome(){
+      
+        $data = DB::select("SELECT * FROM `food` ORDER BY(id) DESC");
+        return view('adminhome', ['data' => $data]);
 
+    }
+    public function riderlist($id){
+
+
+
+
+
+
+        
+        
+        $data = DB::select("SELECT * FROM `pick` WHERE fid='$id' ORDER BY(status)");
+        return view('riderlist', ['data' => $data]);
+
+    }
+public function riderasp($id,$fid){
+   
+    DB::update("UPDATE `pick` SET `status`='accept' WHERE id='$id'");
+
+
+
+    
+    return redirect("riderlist/$fid");
+}
     
 }

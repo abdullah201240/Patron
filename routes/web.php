@@ -25,7 +25,9 @@ Route::post('usersingin', [singup_singin::class, 'usersingin']);
 
 Route::get('userhome', [singup_singin::class, 'userhome']);
 
-Route::view("adminhome","adminhome");
+Route::get('adminhome', [admin::class, 'adminhome']);
+
+
 Route::view("riderapplyfrom","riderapplyfrom");
 Route::post('riderapplyfrom', [rider::class, 'riderapplyfrom']);
 Route::view("adminlogin","adminlogin");
@@ -74,3 +76,10 @@ Route::get('riderpick', [rider::class, 'riderpick']);
 Route::get('myride', [rider::class, 'myride']);
 
 Route::get('showmap/{id}', [rider::class, 'showmap']);
+
+
+
+
+Route::get('riderlist/{id}', [admin::class, 'riderlist']);
+
+Route::get('riderasp/{id}/{fid}', [admin::class, 'riderasp']);
